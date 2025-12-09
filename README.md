@@ -1,2 +1,2 @@
-# Monocyte-centrered-IC-predictor
+# Monocyte-centrered-IC-indicator-identification
 This were the codes generating figures and supple figures of paper from figure1 to figrue3.
