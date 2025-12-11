@@ -509,16 +509,7 @@ library(stringr)
 library(ggsignif)
 library(Seurat) 
 library(patchwork)
-setwd('/public/home/JianLiu/zijin/lusc_patients/code2/formal_code/output/figure1_formal')
 
-file_list<-list.files("/public/home/JianLiu/zijin/lusc_patients/output/20240612_TCR/data")
-file_list<-grep("*.csv",file_list,value=T)
-
-for(file_name in file_list){
-    var_name<-strsplit(file_name,'-T')[[1]][1]
-    var_name<-gsub('-','_',var_name)
-    assign(var_name,read.csv(paste0('/public/home/JianLiu/zijin/lusc_patients/output/20240612_TCR/data/',file_name)))
-}
 
 seurat_all_tcr<-readRDS('../figure1_output/seurat_all_tcr.rds')
 Idents(seurat_all_tcr)<-'treat_result_coarse2_sample'
@@ -683,7 +674,7 @@ dev.off()
 
 # CNV result visualization
 library(ggpubr)
-setwd('/public/home/JianLiu/zijin/lusc_patients/code2/formal_code/output/figure1_formal/infercnv')
+setwd('../figure1_output/infercnv')
 for(i in c('tumor','blood')){
 meta<-readRDS(paste0(i,'_cnv_plotdata.rds'))
 meta$annotation1<-as.character(meta$annotation1)
